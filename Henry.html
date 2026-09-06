@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KRAV MAGA PERÚ — Instructor Henry Ishibashi | Defensa Personal Táctica</title>
+
+  <!-- Meta Tags Dinámicos SEO & Open Graph -->
+  <meta name="description" content="Plataforma Oficial de Krav Maga en el Perú. Instructores certificados en el Instituto Wingate (Israel). Defensa personal táctica urbana y alto rendimiento.">
+  <meta property="og:title" content="Krav Maga Perú — Instructor Henry Ishibashi">
+  <meta property="og:description" content="Sistema oficial de combate israelí en Perú. Entrenamientos tácticos para civiles, mujeres y seguridad VIP.">
+  <meta property="og:type" content="website">
+
+  <!-- Preload Fonts & Recursos Críticos -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+  
+  <!-- CSS Principal -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- CDNs: Barba.js v2.10.0, GSAP, ScrollTrigger, Lenis v1.3.26, Lottie -->
+  <script src="https://cdn.jsdelivr.net/npm/@barba/core@2.10.0/dist/barba.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.3.26/dist/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
+</head>
+
+<body data-barba="wrapper">
+  
+  <!-- Overlay de Ruido Analógico al 3% (Tactical Noise) -->
+  <div class="tactical-noise" aria-hidden="true"></div>
+
+  <!-- HEADER TÁCTICO FIJO -->
+  <header class="header-tactical">
+    <a href="#inicio" class="brand-logo">
+      <img src="https://kravmagaperu.com.pe/krav-maga_images/general/escudo.png" alt="Krav Maga Perú Logo Escudo" loading="eager" width="40" height="40">
+      <div class="brand-text">KRAV MAGA <span>PERÚ</span></div>
+    </a>
+
+    <div class="header-actions">
+      <!-- CTA Magnético Top (MOFU -> BOFU) -->
+      <button class="btn-magnetic btn-tactical-sm hide-mobile" onclick="openFitcoWidget()">
+        <span><i class="fa-solid fa-calendar-check"></i> Clase VIP</span>
+      </button>
+
+      <!-- Carrito Trigger -->
+      <button class="btn-magnetic cart-trigger" onclick="toggleCart()" aria-label="Ver Carrito">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span id="cart-badge" class="badge-count">0</span>
+      </button>
+
+      <!-- Menú Hamburguesa -->
+      <button class="burger-btn" id="burgerBtn" aria-label="Abrir Menú de Navegación">
+        <div class="burger-line"></div>
+        <div class="burger-line"></div>
+      </button>
+    </div>
+  </header>
+
+  <!-- OVERLAY DE MENÚ FULLSCREEN CON CLIP-PATH ANIMADO -->
+  <div class="menu-overlay" id="menuOverlay">
+    <div class="menu-content">
+      <nav class="menu-nav">
+        <a href="#inicio" class="menu-link split-text" onclick="closeMenu()">01. INICIO</a>
+        <a href="#instructor" class="menu-link split-text" onclick="closeMenu()">02. INSTRUCTOR ISHIBASHI</a>
+        <a href="#que-es-kravmaga" class="menu-link split-text" onclick="closeMenu()">03. QUÉ ES KRAV MAGA</a>
+        <a href="#historia" class="menu-link split-text" onclick="closeMenu()">04. HISTORIA & LINAJE</a>
+        <a href="#horizontal-carousel" class="menu-link split-text" onclick="closeMenu()">05. PROGRAMAS & PRECIOS</a>
+        <a href="#inscripcion" class="menu-link split-text" onclick="closeMenu()">06. INSCRIPCIÓN & EVALUACIÓN</a>
+        <a href="#miraflores" class="menu-link split-text" onclick="closeMenu()">07. SEDE MIRAFLORES</a>
+        <a href="#comunidad" class="menu-link split-text" onclick="closeMenu()">08. COMUNIDAD & TESTIMONIOS</a>
+        <a href="#graduaciones" class="menu-link split-text" onclick="closeMenu()">09. GRADUACIONES</a>
+        <a href="#productos" class="menu-link split-text" onclick="closeMenu()">10. TIENDA TÁCTICA</a>
+        <a href="#contacto" class="menu-link split-text" onclick="closeMenu()">11. CONTACTO & REDES</a>
+      </nav>
+
+      <div class="menu-footer">
+        <div class="ai-badge"><i class="fa-solid fa-robot"></i> Asistente Karina AI Activa (24/7)</div>
+        <div class="social-links">
+          <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BARBA.JS CONTAINER PRINCIPAL -->
+  <main data-barba="container" data-barba-namespace="home" data-title="KRAV MAGA PERÚ — Instructor Henry Ishibashi" id="main-content">
+
+    <!-- 1. SECCIÓN INICIO / HERO (TOFU: Captación Visual) -->
+    <section class="hero-section" id="inicio">
+      <div class="hero-container container">
+        <div class="hero-badge btn-magnetic">
+          <i class="fa-solid fa-shield-halved"></i> SISTEMA OFICIAL DE COMBATE ISRAELÍ
+        </div>
+        <h1 class="hero-title split-text">DEFENSA TÁCTICA REAL</h1>
+        <p class="hero-subtitle">
+          Instrucción oficial avalada por el Instituto Wingate (Israel). Neutralice amenazas urbanas reales con respuestas instintivas, rápidas y devastadoras.
+        </p>
+        
+        <div class="hero-cta-group">
+          <!-- CTA BOFU -->
+          <button class="btn-magnetic btn-tactical-lg" onclick="openFitcoWidget()">
+            <span>RESERVAR CLASE DE PRUEBA VIP <i class="fa-solid fa-arrow-right"></i></span>
+          </button>
+
+          <!-- CTA MOFU -->
+          <a href="https://wa.me/51999999999?text=Hola%20Karina,%20deseo%20descargar%20el%20Plan%20T%C3%A1ctico%20PDF" class="btn-magnetic btn-outline-lg" target="_blank">
+            <span><i class="fa-solid fa-file-pdf"></i> DESCARGAR PLAN TÁCTICO</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Contenedor Lottie Animado por Scroll -->
+      <div class="lottie-scroll-target" id="lottieTactical"></div>
+    </section>
+
+    <!-- 2. SECCIÓN INSTRUCTOR HENRY ISHIBASHI (BENTO GRID & GRADUACIONES) -->
+    <section class="section-padding container" id="instructor">
+      <div class="section-header">
+        <span class="sub-tag">LINAJE & CERTIFICACIÓN MUNDIAL</span>
+        <h2 class="section-title split-text">INSTRUCTOR HENRY ISHIBASHI</h2>
+      </div>
+
+      <div class="bento-grid-tactical">
+        <!-- Bento Item Principal -->
+        <div class="bento-card span-8 bento-glow">
+          <div class="bento-header">
+            <span class="bento-badge">PIONERO EN EL PERÚ</span>
+            <h3>Fundador de Krav Maga Perú (2008)</h3>
+          </div>
+          <p>Introductor oficial del sistema en el Perú. Con formación directa en Israel y Brasil, el Instructor Ishibashi ha capacitado a miles de civiles, cuerpos policiales y escoltas privados.</p>
+          <div class="badge-group">
+            <span class="pill-badge"><i class="fa-solid fa-certificate"></i> Wingate Institute (Israel)</span>
+            <span class="pill-badge"><i class="fa-solid fa-certificate"></i> Krav Maga Brasil</span>
+            <span class="pill-badge"><i class="fa-solid fa-dumbbell"></i> CrossFit Level 1</span>
+          </div>
+        </div>
+
+        <!-- Bento Secondary Item 1 -->
+        <div class="bento-card span-4">
+          <i class="fa-solid fa-award bento-icon"></i>
+          <h4>Aikido 3er Dan</h4>
+          <p>Otorgado por Aikikai Hombu Dojo (Japón). Formación de combate fluida y biomecánica tradicional.</p>
+        </div>
+
+        <!-- Bento Secondary Item 2 -->
+        <div class="bento-card span-4">
+          <i class="fa-solid fa-user-ninja bento-icon"></i>
+          <h4>Goshin Jutsu 3er Dan</h4>
+          <p>Especialización en defensa personal contra agresiones a mano armada y agarres múltiples.</p>
+        </div>
+
+        <!-- Bento Secondary Item 3 -->
+        <div class="bento-card span-8 bento-glow">
+          <i class="fa-solid fa-bolt bento-icon"></i>
+          <h4>Karate Seiguio Ryu 2do Dan & Preparación Físico-Táctica</h4>
+          <p>Integración de acondicionamiento de alta intensidad con protocolos de respuesta bajo estrés extremo.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. SECCIÓN QUÉ ES KRAV MAGA -->
+    <section class="section-padding bg-darker" id="que-es-kravmaga">
+      <div class="container grid-2-col">
+        <div class="content-col">
+          <span class="sub-tag">FILOSOFÍA DE COMBATE</span>
+          <h2 class="section-title split-text">¿QUÉ ES EL KRAV MAGA?</h2>
+          <p>El Krav Maga no es un deporte de contacto ni posee reglas de competición. Es un sistema táctico de defensa personal diseñado para preservar la vida en confrontaciones reales.</p>
+          <ul class="tactical-list">
+            <li><i class="fa-solid fa-check-double"></i> Respuestas instintivas e inmediatas.</li>
+            <li><i class="fa-solid fa-check-double"></i> Simplicidad técnica accesible para cualquier persona.</li>
+            <li><i class="fa-solid fa-check-double"></i> Ataque a puntos vulnerables y desarme táctico.</li>
+          </ul>
+        </div>
+        <div class="media-col">
+          <div class="img-frame">
+            <img src="https://kravmagaperu.com.pe/krav-maga_images/instructor/foto15.jpg" alt="Qué es Krav Maga Perú" loading="lazy" class="parallax-img">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. SECCIÓN HISTORIA (EMBUDO MOFU EVALUACIÓN TÁCTICA) -->
+    <section class="section-padding" id="historia">
+      <div class="container">
+        <div class="section-header center">
+          <span class="sub-tag">HISTORIA & ORIGEN TÁCTICO</span>
+          <h2 class="section-title split-text">DE BRATISLAVA A LAS FDI DE ISRAEL</h2>
+          <p class="section-desc">Creado por Imi Lichtenfeld para proteger a la comunidad judía en los años 30 y adoptado como el sistema oficial de las Fuerzas de Defensa de Israel (IDF).</p>
+        </div>
+
+        <!-- Tarjeta Interactiva Karina AI -->
+        <div class="test-evaluacion-card">
+          <h3><i class="fa-solid fa-crosshairs"></i> ¿Cuál es tu Nivel de Preparación Táctica?</h3>
+          <p>Realiza un diagnóstico de riesgo gratuito en 3 preguntas con nuestra Asistente Karina AI en WhatsApp.</p>
+          <a href="https://wa.me/51999999999?text=Hola%20Karina,%20deseo%20realizar%20mi%20Diagn%C3%B3stico%20de%20Riesgo%20T%C3%A1ctico" target="_blank" class="btn-magnetic btn-tactical-md" style="margin-top: 16px;">
+            <span><i class="fa-brands fa-whatsapp"></i> Iniciar Test Táctico con Karina AI</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. SECCIÓN CARRUSEL HORIZONTAL PINNING (400vh Scroll - PROGRAMAS, PRECIOS & SEDE) -->
+    <section class="horizontal-section" id="horizontal-carousel">
+      <div class="horizontal-wrap">
+        
+        <!-- Panel 1: Defensa Adultos & Civiles -->
+        <div class="panel-slide">
+          <div class="panel-inner">
+            <div class="panel-number">01</div>
+            <div class="panel-content">
+              <span class="sub-tag">MÓDULO CIVILES</span>
+              <h3>DEFENSA ADULTOS</h3>
+              <p>Desarmes de armas blancas, pistolas, defensa contra agresiones múltiples y acondicionamiento táctico bajo presión real.</p>
+              <div class="price-tag">Desde S/ 250 / mes</div>
+              <button class="btn-magnetic btn-tactical-sm" onclick="openFitcoWidget()">Agendar Módulo</button>
+            </div>
+            <div class="panel-img-wrap">
+              <img src="https://kravmagaperu.com.pe/krav-maga_images/instructor/foto11.jpg" alt="Módulo Adultos Krav Maga" class="panel-img-parallax" loading="lazy">
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 2: Defensa Personal Femenina -->
+        <div class="panel-slide">
+          <div class="panel-inner">
+            <div class="panel-number">02</div>
+            <div class="panel-content">
+              <span class="sub-tag">MÓDULO FEMENINO</span>
+              <h3>DEFENSA PERSONAL FEMENINA</h3>
+              <p>Biomecánica aplicada, zafes de agarres, control de distancia y uso del entorno para neutralizar atacantes de mayor volumen físico.</p>
+              <div class="price-tag">Desde S/ 220 / mes</div>
+              <button class="btn-magnetic btn-tactical-sm" onclick="openFitcoWidget()">Agendar Módulo</button>
+            </div>
+            <div class="panel-img-wrap">
+              <img src="https://kravmagaperu.com.pe/krav-maga_images/instructor/foto12.jpg" alt="Defensa Femenina Krav Maga" class="panel-img-parallax" loading="lazy">
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 3: Protección VIP & Escoltas -->
+        <div class="panel-slide">
+          <div class="panel-inner">
+            <div class="panel-number">03</div>
+            <div class="panel-content">
+              <span class="sub-tag">MÓDULO ESPECIALIZADO</span>
+              <h3>PROTECCIÓN VIP & ESCOLTAS</h3>
+              <p>Capacitación para personal de seguridad privada, protección de terceros, extracción táctica e intervención en vehículos.</p>
+              <div class="price-tag">Socio Corporativo / Cotizar</div>
+              <button class="btn-magnetic btn-tactical-sm" onclick="openFitcoWidget()">Agendar Módulo</button>
+            </div>
+            <div class="panel-img-wrap">
+              <img src="https://kravmagaperu.com.pe/krav-maga_images/instructor/foto14.jpg" alt="Protección VIP Krav Maga" class="panel-img-parallax" loading="lazy">
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 4: Horarios & Membresías -->
+        <div class="panel-slide">
+          <div class="panel-inner">
+            <div class="panel-number">04</div>
+            <div class="panel-content">
+              <span class="sub-tag">ACCESO TOTAL</span>
+              <h3>PLANES & HORARIOS</h3>
+              <p>Clases presenciales de Lunes a Sábado en Sede Central Miraflores. Acceso ilimitado a plataforma digital con Fitco LATAM.</p>
+              <div class="price-tag">Membresía Trimestral S/ 650</div>
+              <button class="btn-magnetic btn-tactical-sm" onclick="openFitcoWidget()">Inscribirse Ahora</button>
+            </div>
+            <div class="panel-img-wrap">
+              <img src="https://kravmagaperu.com.pe/krav-maga_images/instructor/foto13.jpg" alt="Horarios Krav Maga Perú" class="panel-img-parallax" loading="lazy">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 6. SECCIÓN INSCRIPCIÓN (EMBUDO BOFU) -->
+    <section class="section-padding bg-darker" id="inscripcion">
+      <div class="container text-center">
+        <span class="sub-tag">PROCESO DE ADMISIÓN</span>
+        <h2 class="section-title split-text">RESERVA TU CLASE DE EVALUACIÓN VIP</h2>
+        <p class="section-desc">Pases limitados por clase para garantizar corrección técnica personalizada.</p>
+        
+        <div class="funnel-steps-grid">
+          <div class="step-card">
+            <div class="step-num">01</div>
+            <h4>Selecciona Horario</h4>
+            <p>Elige tu sede y turno de entrenamiento mediante el widget de Fitco LATAM.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">02</div>
+            <h4>Confirmación WhatsApp</h4>
+            <p>Karina AI valida tu cupo e indica los requerimientos tácticos para tu clase.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">03</div>
+            <h4>Ingreso con QR</h4>
+            <p>Escanea tu QR de acceso en recepción e inicia tu entrenamiento táctico.</p>
+          </div>
+        </div>
+
+        <button class="btn-magnetic btn-tactical-lg" onclick="openFitcoWidget()" style="margin-top: 40px;">
+          <span>INICIAR INSCRIPCIÓN AHORA <i class="fa-solid fa-chevron-right"></i></span>
+        </button>
+      </div>
+    </section>
+
+    <!-- 7. SECCIÓN SEDE MIRAFLORES -->
+    <section class="section-padding container" id="miraflores">
+      <div class="grid-2-col">
+        <div class="content-col">
+          <span class="sub-tag">UBICACIÓN TÁCTICA</span>
+          <h2 class="section-title split-text">SEDE CENTRAL MIRAFLORES</h2>
+          <p>Instalaciones equipadas con tatami profesional de impacto, sacos de golpeo, equipamiento de protección balística simulada y zona de acondicionamiento de alta intensidad.</p>
+          <p><i class="fa-solid fa-location-dot" style="color:var(--accent-orange);"></i> Av. José Pardo 601, Miraflores, Lima - Perú.</p>
+          <p><i class="fa-solid fa-clock" style="color:var(--accent-orange);"></i> Lunes a Viernes: 07:00 - 22:00 hrs | Sábados: 08:00 - 14:00 hrs</p>
+        </div>
+        <div class="media-col">
+          <div class="map-placeholder">
+            <iframe title="Mapa Sede Miraflores Krav Maga Perú" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.982260275811!2d-77.0315!3d-12.1192!2m3!1f0!1f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c81938!2sMiraflores%2C%20Lima!5e0!3m2!1ses!2spe!4v1600000000000!5m2!1ses!2spe" width="100%" height="320" style="border:0; border-radius:12px; filter: invert(90%) hue-rotate(180deg);" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. SECCIÓN COMUNIDAD & TESTIMONIOS -->
+    <section class="section-padding bg-darker" id="comunidad">
+      <div class="container">
+        <div class="section-header center">
+          <span class="sub-tag">TESTIMONIOS REALES</span>
+          <h2 class="section-title split-text">COMUNIDAD KRAV MAGA PERÚ</h2>
+        </div>
+
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            <p>"La instrucción del Henry Ishibashi cambió radicalmente mi perspectiva de seguridad. La velocidad de aprendizaje es incomparable."</p>
+            <div class="user-info">
+              <strong>Carlos Mendoza</strong> — Executive Security Officer
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            <p>"Como mujer me daba miedo transitar de noche. Tras 3 meses en el módulo femenino tengo la confianza y el reflejo para defenderme."</p>
+            <div class="user-info">
+              <strong>Andrea Ugarte</strong> — Diseñadora UI/UX
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. SECCIÓN GRADUACIONES -->
+    <section class="section-padding container" id="graduaciones">
+      <div class="section-header">
+        <span class="sub-tag">SISTEMA DE CINTURONES & EXÁMENES</span>
+        <h2 class="section-title split-text">GRADUACIONES E EVALUACIÓN ISRAELÍ</h2>
+        <p>Evaluaciones semestrales avaladas internacionalmente con la entrega de parches institucionales y diplomas certificados.</p>
+      </div>
+
+      <div class="belts-timeline">
+        <div class="belt-node"><span class="belt-color white"></span> Amarillo / Naranja</div>
+        <div class="belt-node"><span class="belt-color green"></span> Verde / Azul</div>
+        <div class="belt-node"><span class="belt-color brown"></span> Marrón / Negro</div>
+      </div>
+    </section>
+
+    <!-- 10. SECCIÓN PRODUCTOS / TIENDA TÁCTICA (CIERRE DE VENTA & KIT) -->
+    <section class="section-padding store-theme" id="productos">
+      <div class="container">
+        <div class="section-header center">
+          <span class="sub-tag">EQUIPAMIENTO TÁCTICO OFICIAL</span>
+          <h2 class="section-title split-text">INDUMENTARIA & TIENDA</h2>
+          <p class="section-desc">Productos oficiales diseñados para el alto rendimiento e impacto.</p>
+        </div>
+
+        <div class="products-grid-tactical">
+          <!-- Producto 1 -->
+          <div class="product-card-bento">
+            <div class="product-thumb">
+              <img src="https://kravmagaperu.com.pe/krav-maga_images/instructor/foto13.jpg" alt="Polo Táctico Krav Maga" loading="lazy">
+            </div>
+            <div class="product-info">
+              <h4>Polo Táctico DryFit Krav Maga</h4>
+              <p>Algodón táctico con parches laterales y transpiración avanzada.</p>
+              <div class="product-price">S/ 89.00</div>
+              <button class="btn-magnetic btn-tactical-sm" onclick="addToCart('Polo Táctico DryFit', 89)">
+                <i class="fa-solid fa-cart-plus"></i> Añadir al Carrito
+              </button>
+            </div>
+          </div>
+
+          <!-- Producto 2 -->
+          <div class="product-card-bento">
+            <div class="product-thumb">
+              <img src="https://kravmagaperu.com.pe/krav-maga_images/instructor/foto11.jpg" alt="Pantalón Ripstop Krav Maga" loading="lazy">
+            </div>
+            <div class="product-info">
+              <h4>Pantalón Táctico Ripstop</h4>
+              <p>Tejido antidesgarro con ajuste ergonómico en rodillas y cintura.</p>
+              <div class="product-price">S/ 159.00</div>
+              <button class="btn-magnetic btn-tactical-sm" onclick="addToCart('Pantalón Táctico Ripstop', 159)">
+                <i class="fa-solid fa-cart-plus"></i> Añadir al Carrito
+              </button>
+            </div>
+          </div>
+
+          <!-- Producto 3 -->
+          <div class="product-card-bento">
+            <div class="product-thumb">
+              <img src="https://kravmagaperu.com.pe/krav-maga_images/instructor/foto12.jpg" alt="Uniforme Gi Oficial" loading="lazy">
+            </div>
+            <div class="product-info">
+              <h4>Uniforme Oficial Gi Krav Maga</h4>
+              <p>Chaqueta reforzada de 550 gr/m² con parches oficiales de grado.</p>
+              <div class="product-price">S/ 289.00</div>
+              <button class="btn-magnetic btn-tactical-sm" onclick="addToCart('Uniforme Oficial Gi', 289)">
+                <i class="fa-solid fa-cart-plus"></i> Añadir al Carrito
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ZONA ALUMNOS / RETENCIÓN FITCO LATAM & QR -->
+    <section class="section-padding bg-darker" id="alumnos">
+      <div class="container">
+        <div class="fitco-retention-card">
+          <div class="fitco-info">
+            <span class="sub-tag">PORTAL ALUMNOS & RETENCIÓN</span>
+            <h2>FITCO LATAM & CONTROL DE ACCESO QR</h2>
+            <p>Gestiona tus asistencia, consulta tus evaluaciones técnias y renueva tu membresía sin filas.</p>
+            <div class="fitco-buttons">
+              <button class="btn-magnetic btn-tactical-md" onclick="openFitcoWidget()">
+                <i class="fa-solid fa-qrcode"></i> Generar QR de Acceso
+              </button>
+              <a href="https://wa.me/51999999999?text=Hola%20Karina,%20deseo%20soporte%20sobre%20mi%20membres%C3%ADa" target="_blank" class="btn-magnetic btn-outline-md">
+                <i class="fa-solid fa-headset"></i> Karina AI Soporte Alumnos
+              </a>
+            </div>
+          </div>
+          <div class="fitco-qr-placeholder">
+            <div class="qr-box">
+              <i class="fa-solid fa-qrcode qr-icon"></i>
+              <span>QR ACCESO ALUMNO</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11, 12, 13. CONTACTO, REDES & FOOTER -->
+    <section class="section-padding container" id="contacto">
+      <div class="grid-2-col">
+        <div>
+          <span class="sub-tag">CONTACTO DIRECTO</span>
+          <h2 class="section-title split-text">ÚNETE A LA ÉLITE</h2>
+          <p>Oficina Central: Av. José Pardo 601, Miraflores.</p>
+          <p>Teléfono: +51 999 999 999</p>
+          <p>Email: contacto@kravmagaperu.com.pe</p>
+        </div>
+        <div>
+          <form class="tactical-form" onsubmit="event.preventDefault(); alert('Mensaje enviado a Karina AI.');">
+            <input type="text" placeholder="Nombre Completo" required class="input-tactical">
+            <input type="tel" placeholder="WhatsApp / Teléfono" required class="input-tactical">
+            <textarea placeholder="Mensaje o Consulta Táctica" rows="4" class="input-tactical"></textarea>
+            <button type="submit" class="btn-magnetic btn-tactical-md width-100" style="margin-top:10px;">
+              <span>ENVIAR MENSAJE AHORA</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- DRAWER CARRITO TÁCTICO -->
+  <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+    <div class="cart-header">
+      <h3><i class="fa-solid fa-cart-shopping"></i> CARRITO TÁCTICO</h3>
+      <button onclick="toggleCart()" class="cart-close" aria-label="Cerrar Carrito">&times;</button>
+    </div>
+    <div class="cart-body" id="cartItems">
+      <p class="cart-empty">El carrito se encuentra vacío.</p>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total-row">
+        <span>TOTAL:</span>
+        <span id="cartTotalDisplay" class="total-amount">S/ 0.00</span>
+      </div>
+      <!-- Cierre de Compra Stripe / Mercado Pago + WhatsApp Dispatch -->
+      <button class="btn-magnetic btn-tactical-lg width-100" onclick="checkoutWhatsApp()">
+        <span><i class="fa-brands fa-whatsapp"></i> COMPRAR POR WHATSAPP</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- MODAL PLACEHOLDER FITCO LATAM API -->
+  <div class="modal-fitco" id="modalFitco" aria-hidden="true">
+    <div class="modal-fitco-content">
+      <button class="modal-close" onclick="closeFitcoWidget()">&times;</button>
+      <div class="modal-header">
+        <i class="fa-solid fa-calendar-days fitco-logo-icon"></i>
+        <h3>RESERVA DE CLASES — FITCO LATAM</h3>
+      </div>
+      <div class="fitco-api-mockup">
+        <p>Selecciona tu horario para la <strong>Clase de Prueba VIP</strong>:</p>
+        <div class="time-slots">
+          <button class="slot-btn" onclick="selectSlot(this)">Lun / Mié 19:00 hrs — Miraflores</button>
+          <button class="slot-btn" onclick="selectSlot(this)">Mar / Jue 20:00 hrs — Miraflores</button>
+          <button class="slot-btn" onclick="selectSlot(this)">Sábados 10:00 hrs — Táctico Intensivo</button>
+        </div>
+        <input type="text" id="fitcoName" placeholder="Nombre Completo" class="input-tactical">
+        <input type="tel" id="fitcoPhone" placeholder="Teléfono / WhatsApp" class="input-tactical">
+        <button class="btn-magnetic btn-tactical-md width-100" onclick="confirmFitcoBooking()" style="margin-top: 16px;">
+          <span>CONFIRMAR RESERVA EN FITCO</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING WHATSAPP BUTTON (KARINA AI) -->
+  <a href="https://wa.me/51999999999?text=Hola%20Karina,%20deseo%20agendar%20una%20clase" class="whatsapp-float btn-magnetic" target="_blank" aria-label="Contacto por WhatsApp Karina AI">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- FOOTER -->
+  <footer class="footer-tactical">
+    <div class="container text-center">
+      <img src="https://kravmagaperu.com.pe/krav-maga_images/general/escudo.png" alt="Krav Maga Perú Escudo" class="footer-logo" loading="lazy" width="60">
+      <p>© KRAV MAGA PERÚ — INSTRUCTOR HENRY ISHIBASHI. TODOS LOS DERECHOS RESERVADOS.</p>
+    </div>
+  </footer>
+
+  <!-- App Core Engine Script -->
+  <script src="app.js"></script>
+</body>
+</html>

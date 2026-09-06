@@ -1,0 +1,263 @@
+/* ==========================================================================
+   DESIGN SYSTEM: TACTICAL MINIMALISM (DARK MODE + NEON GLOWS)
+   ========================================================================== */
+
+:root {
+  --bg-dark: #0a0a0a;
+  --bg-darker: #050505;
+  --bg-card: #121212;
+  --bg-store: #0b1120;
+  --text-main: #ffffff;
+  --text-muted: #a1a1aa;
+  --accent-orange: #ff5500;
+  --accent-glow: rgba(255, 85, 0, 0.4);
+  --border-muted: rgba(255, 255, 255, 0.1);
+  --font-heading: 'Oswald', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0; padding: 0;
+}
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* 3% Tactical Noise Filter Overlay */
+.tactical-noise {
+  position: fixed; inset: 0;
+  pointer-events: none; z-index: 9999;
+  opacity: 0.03;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+.container {
+  width: 90%; max-width: 1300px;
+  margin: 0 auto;
+  position: relative; z-index: 2;
+}
+
+.text-center { text-align: center; }
+.width-100 { width: 100%; }
+
+/* Header & Navigation */
+.header-tactical {
+  position: fixed; top: 0; left: 0; width: 100%;
+  padding: 16px 40px; display: flex;
+  justify-content: space-between; align-items: center;
+  z-index: 200;
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-muted);
+}
+
+.brand-logo {
+  display: flex; align-items: center; gap: 12px;
+  text-decoration: none; color: #fff;
+}
+.brand-text { font-family: var(--font-heading); font-size: 1.3rem; letter-spacing: 1px; }
+.brand-text span { color: var(--accent-orange); }
+
+.header-actions { display: flex; align-items: center; gap: 16px; }
+
+/* Menú Overlay con Clip-Path Animado */
+.menu-overlay {
+  position: fixed; inset: 0; background: var(--bg-darker);
+  z-index: 150; display: flex; align-items: center; justify-content: center;
+  clip-path: circle(0% at calc(100% - 60px) 40px);
+  transition: clip-path 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+}
+.menu-overlay.active {
+  clip-path: circle(150% at calc(100% - 60px) 40px);
+}
+.menu-nav { display: flex; flex-direction: column; gap: 12px; text-align: center; }
+.menu-link {
+  font-family: var(--font-heading); font-size: clamp(1.5rem, 3vw, 2.5rem);
+  color: #fff; text-decoration: none; transition: color 0.3s ease;
+}
+.menu-link:hover { color: var(--accent-orange); }
+
+.burger-btn {
+  background: transparent; border: none; cursor: pointer;
+  display: flex; flex-direction: column; gap: 6px; padding: 8px; z-index: 210;
+}
+.burger-line { width: 28px; height: 2px; background: #fff; transition: transform 0.3s ease; }
+
+/* Botones Magnéticos */
+.btn-magnetic {
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 6px; text-decoration: none; border: none;
+  cursor: pointer; font-family: var(--font-heading);
+  letter-spacing: 1px; text-transform: uppercase; font-weight: 700;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-tactical-lg {
+  background: var(--accent-orange); color: #fff;
+  padding: 16px 36px; font-size: 1.1rem;
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+.btn-tactical-md { background: var(--accent-orange); color: #fff; padding: 12px 24px; font-size: 0.95rem; }
+.btn-tactical-sm { background: var(--accent-orange); color: #fff; padding: 8px 16px; font-size: 0.85rem; }
+
+.btn-outline-lg {
+  background: transparent; color: #fff;
+  border: 1px solid var(--border-muted);
+  padding: 16px 36px; font-size: 1.1rem;
+}
+.btn-outline-md {
+  background: transparent; color: #fff;
+  border: 1px solid var(--border-muted);
+  padding: 12px 24px; font-size: 0.95rem; text-decoration: none;
+}
+
+/* Hero Section */
+.hero-section {
+  min-height: 100vh; display: flex; align-items: center;
+  justify-content: center; text-align: center;
+  padding-top: 140px; position: relative;
+}
+.hero-title {
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  line-height: 0.95; margin: 20px 0;
+}
+.hero-subtitle {
+  max-width: 680px; margin: 0 auto 36px;
+  color: var(--text-muted); font-size: 1.2rem;
+}
+.hero-cta-group { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+/* Secciones & Bento Grid */
+.section-padding { padding: 120px 0; }
+.bg-darker { background-color: var(--bg-darker); }
+
+.sub-tag {
+  color: var(--accent-orange); font-family: var(--font-heading);
+  letter-spacing: 2px; font-size: 0.9rem; text-transform: uppercase;
+}
+
+.bento-grid-tactical {
+  display: grid; grid-template-columns: repeat(12, 1fr);
+  gap: 24px; margin-top: 40px;
+}
+.bento-card {
+  background: var(--bg-card); border: 1px solid var(--border-muted);
+  border-radius: 12px; padding: 32px; position: relative;
+}
+.bento-glow { border-color: var(--accent-orange); box-shadow: 0 0 25px rgba(255, 85, 0, 0.15); }
+.span-8 { grid-column: span 8; }
+.span-4 { grid-column: span 4; }
+
+.pill-badge {
+  display: inline-block; background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border-muted); padding: 4px 12px;
+  border-radius: 20px; font-size: 0.8rem; margin-right: 8px; margin-top: 12px;
+}
+
+/* Grids Auxiliares */
+.grid-2-col { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+.tactical-list { list-style: none; margin-top: 20px; }
+.tactical-list li { margin-bottom: 10px; color: var(--text-muted); }
+.tactical-list i { color: var(--accent-orange); margin-right: 8px; }
+
+/* HORIZONTAL PINNING (400vh Scroll) */
+.horizontal-section {
+  overflow: hidden; width: 100%; height: 100vh; position: relative;
+}
+.horizontal-wrap { display: flex; height: 100%; width: 400%; }
+.panel-slide {
+  width: 100vw; height: 100vh; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  padding: 0 60px; background: #080808;
+}
+.panel-inner {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+  align-items: center; width: 100%; max-width: 1200px;
+}
+.panel-number { font-family: var(--font-heading); font-size: 6rem; color: var(--accent-orange); opacity: 0.3; }
+.panel-img-wrap { height: 420px; border-radius: 12px; overflow: hidden; border: 1px solid var(--border-muted); }
+.panel-img-parallax { width: 125%; height: 125%; object-fit: cover; }
+.price-tag { font-family: var(--font-heading); font-size: 1.5rem; color: var(--accent-orange); margin: 16px 0; }
+
+/* Test de Evaluación / Embudo Cards */
+.test-evaluacion-card {
+  background: linear-gradient(135deg, rgba(255,85,0,0.1), rgba(0,0,0,0.9));
+  border: 1px solid var(--accent-orange); border-radius: 12px;
+  padding: 40px; text-align: center; margin-top: 40px;
+}
+
+.funnel-steps-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px;
+}
+.step-card { background: var(--bg-card); padding: 30px; border-radius: 12px; border: 1px solid var(--border-muted); }
+.step-num { font-family: var(--font-heading); font-size: 2.5rem; color: var(--accent-orange); }
+
+/* Tienda / Store Grid */
+.store-theme { background: var(--bg-store); }
+.products-grid-tactical {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px; margin-top: 40px;
+}
+.product-card-bento {
+  background: rgba(15, 23, 42, 0.6); border: 1px solid var(--border-muted);
+  border-radius: 12px; padding: 20px;
+}
+.product-thumb { height: 220px; border-radius: 8px; overflow: hidden; margin-bottom: 16px; }
+.product-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.product-price { font-family: var(--font-heading); font-size: 1.6rem; color: var(--accent-orange); margin: 10px 0; }
+
+/* Carrito Drawer */
+.cart-drawer {
+  position: fixed; top: 0; right: -420px; width: 380px; height: 100vh;
+  background: var(--bg-darker); border-left: 2px solid var(--accent-orange);
+  z-index: 1000; padding: 30px; display: flex; flex-direction: column;
+  justify-content: space-between; transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.cart-drawer.active { right: 0; }
+.cart-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-muted); padding-bottom: 16px; }
+.cart-close { background: none; border: none; color: #fff; font-size: 1.8rem; cursor: pointer; }
+
+/* Modal Fitco */
+.modal-fitco {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(10px);
+  z-index: 2000; display: none; align-items: center; justify-content: center;
+}
+.modal-fitco.active { display: flex; }
+.modal-fitco-content { background: var(--bg-card); padding: 40px; border-radius: 12px; border: 1px solid var(--accent-orange); width: 90%; max-width: 500px; position: relative; }
+.modal-close { position: absolute; top: 16px; right: 20px; background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; }
+.input-tactical { width: 100%; padding: 12px; margin-top: 10px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-muted); color: #fff; border-radius: 6px; }
+
+/* Floating WhatsApp */
+.whatsapp-float {
+  position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px;
+  background: #25d366; color: #fff; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 30px; box-shadow: 0 0 20px rgba(37, 211, 102, 0.4); z-index: 900; text-decoration: none;
+}
+
+/* Footer */
+.footer-tactical { padding: 40px 0; border-top: 1px solid var(--border-muted); background: var(--bg-darker); margin-top: 60px; }
+.footer-logo { margin-bottom: 16px; }
+
+/* RESPONSIVE ARCHITECTURE BREAKPOINTS */
+@media (max-width: 1023px) {
+  /* Fallback: Desactivar Pinning Horizontal en pantallas < 1024px */
+  .horizontal-section { height: auto; overflow: visible; }
+  .horizontal-wrap { flex-direction: column; width: 100%; height: auto; }
+  .panel-slide { width: 100%; height: auto; padding: 60px 20px; }
+  .panel-inner { grid-template-columns: 1fr; }
+  .bento-grid-tactical { display: flex; flex-direction: column; }
+  .grid-2-col, .funnel-steps-grid { grid-template-columns: 1fr; }
+  .hide-mobile { display: none; }
+}
